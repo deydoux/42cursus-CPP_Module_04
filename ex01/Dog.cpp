@@ -19,3 +19,7 @@ Dog &Dog::operator=(const Dog &rhs) {
 	_brain = rhs._brain;
 	return (*this);
 }
+
+void Cat::makeSound() const {
+	std::cout << "Woof!" << std::endl;
+}
