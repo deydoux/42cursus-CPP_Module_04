@@ -1,6 +1,6 @@
 #include "WrongDog.hpp"
 
-WrongDog::WrongDog(): WrongAnimal("WrongDog") {
+WrongDog::WrongDog(): WrongAnimal("Dog") {
 	std::cerr << "Default WrongDog constructor called" << std::endl;
 }
 
