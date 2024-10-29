@@ -20,4 +20,10 @@ int main() {
 	j->makeSound();
 	wmeta->makeSound();
 	wi->makeSound();
+
+	delete meta;
+	delete i;
+	delete j;
+	delete wmeta;
+	delete wi;
 }

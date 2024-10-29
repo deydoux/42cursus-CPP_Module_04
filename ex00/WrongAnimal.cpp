@@ -23,10 +23,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
 }
 
 void WrongAnimal::makeSound() const {
-	if (_type == "Cat")
-		std::cout << "!woeM" << std::endl;
-	else
-		std::cout << "dnuos nwonknU" << std::endl;
+	std::cout << "dnuos nwonknU" << std::endl;
 }
 
 std::string WrongAnimal::getType() const {
