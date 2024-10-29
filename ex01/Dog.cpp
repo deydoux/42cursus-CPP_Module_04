@@ -20,6 +20,6 @@ Dog &Dog::operator=(const Dog &rhs) {
 	return (*this);
 }
 
-void Cat::makeSound() const {
+void Dog::makeSound() const {
 	std::cout << "Woof!" << std::endl;
 }
