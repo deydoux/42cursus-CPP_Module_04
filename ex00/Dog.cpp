@@ -14,6 +14,6 @@ Dog::~Dog() {
 
 Dog &Dog::operator=(const Dog &rhs) {
 	std::cerr << "Dog copy assignement operator called" << std::endl;
-	Animal::operator=(rhs);
+	_type = rhs._type;
 	return (*this);
 }
