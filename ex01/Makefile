@@ -2,6 +2,7 @@ NAME = ex01
 
 SOURCES = \
 Animal.cpp \
+Brain.cpp \
 Cat.cpp \
 Dog.cpp \
 main.cpp \
