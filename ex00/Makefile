@@ -7,7 +7,6 @@ Dog.cpp \
 main.cpp \
 WrongAnimal.cpp \
 WrongCat.cpp \
-WrongDog.cpp \
 
 CXX = c++
 CXXFLAGS = -MD -std=c++98 -Wall -Wextra -Werror
