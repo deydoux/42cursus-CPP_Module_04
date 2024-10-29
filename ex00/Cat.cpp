@@ -1,0 +1,19 @@
+#include "Cat.hpp"
+
+Cat::Cat(): Animal("Cat") {
+	std::cerr << "Default Cat constructor called" << std::endl;
+}
+
+Cat::Cat(const Cat &other): Animal(other) {
+	std::cerr << "Cat copy constructor called" << std::endl;
+}
+
+Cat::~Cat() {
+	std::cerr << "Cat destructor called" << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &rhs) {
+	std::cerr << "Cat copy assignement operator called" << std::endl;
+	Animal::operator=(rhs);
+	return (*this);
+}
