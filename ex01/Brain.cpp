@@ -21,9 +21,12 @@ Brain &Brain::operator=(const Brain &rhs) {
 }
 
 std::string Brain::getIdea(size_t index) const {
+	if (index >= 100)
+		return (std::string());
 	return (_ideas[index]);
 }
 
 void Brain::setIdea(size_t index, std::string idea) {
-	_ideas[index] = idea;
+	if (index < 100)
+		_ideas[index] = idea;
 }
