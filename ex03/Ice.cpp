@@ -4,7 +4,7 @@ Ice::Ice(): AMateria("ice") {
 	std::cerr << "Ice constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &) {
+Ice::Ice(const Ice &other): AMateria(other) {
 	std::cerr << "Ice copy constructor called" << std::endl;
 }
 

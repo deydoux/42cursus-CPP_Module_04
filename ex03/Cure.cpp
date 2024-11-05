@@ -4,7 +4,7 @@ Cure::Cure(): AMateria("cure") {
 	std::cerr << "Cure constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure &) {
+Cure::Cure(const Cure &other): AMateria(other) {
 	std::cerr << "Cure copy constructor called" << std::endl;
 }
 
