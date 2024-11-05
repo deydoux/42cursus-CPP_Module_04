@@ -56,9 +56,9 @@ void Character::unequip(int idx) {
 		std::cout << _name << " Character " << idx << " inventory slot is empty" << std::endl;
 		return ;
 	}
-	unequiped.push(_inventory[idx]);
+	_unequiped.push(_inventory[idx]);
+	std::cout << _name << " Character unequipped " << _inventory[idx]->getType() << " at " << idx << " inventory slot" << std::endl;
 	_inventory[idx] = NULL;
-	std::cout << _name << " Character unequipped " << _inventory[idx]->getType() << " at " << idx << "inventory slot" << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target) {
