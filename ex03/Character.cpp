@@ -9,7 +9,7 @@ Character::Character(const std::string &name): _inventory(), _name(name) {
 	std::cerr << _name << " Character constructor called" << std::endl;
 }
 
-Character::Character(const Character &other) {
+Character::Character(const Character &other): _inventory() {
 	std::cerr << "Character copy constructor called" << std::endl;
 	*this = other;
 }
@@ -36,8 +36,13 @@ const std::string &Character::getName() const {
 }
 
 void Character::equip(AMateria *m) {
-	// TODO
-	(void)m;
+	for (size_t i = 0; i < 4; i++)
+		if (!_inventory[i]) {
+			_inventory[i] = m;
+			std::cout << _name << " Character equiped " << m->getType() << " at index " << i << " in inventory" << std::endl;
+			return ;
+		}
+	std::cout << _name << " Character can't equip " << m->getType() << ", inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx) {
