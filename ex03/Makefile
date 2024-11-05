@@ -2,6 +2,9 @@ NAME = ex03
 
 SOURCES = \
 AMateria.cpp \
+Character.cpp \
+Cure.cpp \
+Ice.cpp \
 main.cpp \
 
 CXX = c++
