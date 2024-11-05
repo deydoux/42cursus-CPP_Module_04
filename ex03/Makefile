@@ -7,6 +7,7 @@ Cure.cpp \
 Ice.cpp \
 main.cpp \
 MateriaList.cpp \
+MateriaSource.cpp \
 
 CXX = c++
 CXXFLAGS = -MD -std=c++98 -Wall -Wextra -Werror
