@@ -18,9 +18,9 @@ int main(void) {
 	src->learnMateria(tmp);
 	delete tmp;
 
-	ICharacter *me = new Character;
-	ICharacter *tmpMe = new Character("me");
-	ICharacter *bob = new Character("bob");
+	Character *me = new Character;
+	Character *tmpMe = new Character("me");
+	Character *bob = new Character("bob");
 
 	for (int i = -1; i <= 4; i++) {
 		me->use(i, *bob);
@@ -56,6 +56,20 @@ int main(void) {
 		me->use(i, *bob);
 		me->unequip(i);
 	}
+
+	tmpMe = new Character;
+	tmpMe->equip(src->createMateria("ice"));
+	tmpMe->equip(src->createMateria("cure"));
+	tmpMe->equip(src->createMateria("something"));
+	tmpMe->unequip(0);
+	tmpMe->unequip(1);
+	tmpMe->unequip(2);
+	*me = *tmpMe;
+	*tmpMe = *me;
+	delete tmpMe;
+
+	tmpMe = new Character(*me);
+	delete tmpMe;
 
 	delete src;
 	delete me;

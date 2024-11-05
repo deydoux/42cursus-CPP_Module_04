@@ -21,15 +21,15 @@ MateriaList::~MateriaList() {
 
 MateriaList &MateriaList::operator=(const MateriaList &rhs) {
 	std::cerr << "MateriaList copy assignement operator called" << std::endl;
-	if (rhs._element)
-		_element = rhs._element->clone();
-	else
-		_element = NULL;
-	delete _next;
-	if (rhs._next)
-		*_next = *rhs._next;
-	else
-		_next = NULL;
+	this->~MateriaList();
+	_element = NULL;
+	_next = NULL;
+	MateriaList *tmp = (MateriaList *)&rhs;
+	while (tmp && tmp->_element)
+	{
+		push(tmp->_element->clone());
+		tmp = tmp->_next;
+	}
 	return (*this);
 }
 
