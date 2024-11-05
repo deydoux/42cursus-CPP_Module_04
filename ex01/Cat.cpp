@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 
 Cat::Cat(): Animal("Cat"), _brain(new Brain()) {
-	std::cerr << "Default Cat constructor called" << std::endl;
+	std::cerr << "Cat constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &other): Animal(other), _brain(new Brain(*other._brain)) {
