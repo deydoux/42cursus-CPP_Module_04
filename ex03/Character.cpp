@@ -41,10 +41,10 @@ void Character::equip(AMateria *m) {
 	for (size_t i = 0; i < 4; i++)
 		if (!_inventory[i]) {
 			_inventory[i] = m;
-			std::cout << _name << " Character equiped " << m->getType() << " at slot " << i << " in inventory" << std::endl;
+			std::cout << _name << " Character equiped " << m->getType() << " at " << i << " inventory slot" << std::endl;
 			return ;
 		}
-	std::cout << _name << " Character can't equip " << m->getType() << ", inventory is full" << std::endl;
+	std::cout << "Can't equip " << m->getType() << ", " << _name << " Character inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx) {
