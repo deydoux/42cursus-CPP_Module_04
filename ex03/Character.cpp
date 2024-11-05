@@ -47,21 +47,21 @@ void Character::equip(AMateria *m) {
 	std::cout << "Can't equip " << m->getType() << ", " << _name << " Character inventory is full" << std::endl;
 }
 
-void Character::unequip(int idx) {
-	if (0 > idx || idx > 4) {
+void Character::unequip(int index) {
+	if (0 > index || index > 4) {
 		std::cout << "Invalid Character inventory slot" << std::endl;
 		return ;
 	}
-	if (!_inventory[idx]) {
-		std::cout << _name << " Character " << idx << " inventory slot is empty" << std::endl;
+	if (!_inventory[index]) {
+		std::cout << _name << " Character " << index << " inventory slot is empty" << std::endl;
 		return ;
 	}
-	_unequiped.push(_inventory[idx]);
-	std::cout << _name << " Character unequipped " << _inventory[idx]->getType() << " at " << idx << " inventory slot" << std::endl;
-	_inventory[idx] = NULL;
+	_unequiped.push(_inventory[index]);
+	std::cout << _name << " Character unequipped " << _inventory[index]->getType() << " at " << index << " inventory slot" << std::endl;
+	_inventory[index] = NULL;
 }
 
-void Character::use(int idx, ICharacter &target) {
-	if (_inventory[idx])
-		_inventory[idx]->use(target);
+void Character::use(int index, ICharacter &target) {
+	if (_inventory[index])
+		_inventory[index]->use(target);
 }
