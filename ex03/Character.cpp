@@ -37,14 +37,14 @@ const std::string &Character::getName() const {
 	return (_name);
 }
 
-void Character::equip(AMateria *m) {
+void Character::equip(AMateria *materia) {
 	for (size_t i = 0; i < 4; i++)
 		if (!_inventory[i]) {
-			_inventory[i] = m;
-			std::cout << _name << " Character equiped " << m->getType() << " at " << i << " inventory slot" << std::endl;
+			_inventory[i] = materia;
+			std::cout << _name << " Character equiped " << materia->getType() << " at " << i << " inventory slot" << std::endl;
 			return ;
 		}
-	std::cout << "Can't equip " << m->getType() << ", " << _name << " Character inventory is full" << std::endl;
+	std::cout << "Can't equip " << materia->getType() << ", " << _name << " Character inventory is full" << std::endl;
 }
 
 void Character::unequip(int index) {

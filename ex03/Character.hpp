@@ -17,7 +17,7 @@ public:
 	~Character();
 	Character &operator=(const Character &rhs);
 	const std::string &getName() const;
-	void equip(AMateria *m);
+	void equip(AMateria *materia);
 	void unequip(int index);
 	void use(int index, ICharacter &target);
 };
