@@ -7,21 +7,53 @@ int main(void) {
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	AMateria *tmp = new Ice;
+	src->learnMateria(tmp);
+	delete tmp;
+
+	tmp = new Cure;
+	src->learnMateria(tmp);
+	delete tmp;
 
 	ICharacter *me = new Character("me");
-
-	AMateria *tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-
 	ICharacter *bob = new Character("bob");
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	for (int i = -1; i <= 4; i++) {
+		me->use(i, *bob);
+		me->unequip(i);
+	}
 
-	delete bob;
-	delete me;
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("something"));
+	me->equip(src->createMateria("ice"));
+	me->equip(src->createMateria("cure"));
+	me->equip(src->createMateria("something"));
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	delete tmp;
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	delete tmp;
+	tmp = src->createMateria("something");
+	me->equip(tmp);
+	delete tmp;
+
+	for (int i = -1; i <= 4; i++) {
+		me->use(i, *bob);
+		me->unequip(i);
+	}
+
+	for (int i = -1; i <= 4; i++) {
+		me->use(i, *bob);
+		me->unequip(i);
+	}
+
 	delete src;
+	delete me;
+	delete bob;
 }
