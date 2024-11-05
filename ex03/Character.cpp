@@ -15,7 +15,7 @@ Character::Character(const Character &other): _inventory() {
 }
 
 Character::~Character() {
-	std::cerr << "Character destructor called" << std::endl;
+	std::cerr << _name << " Character destructor called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 		delete _inventory[i];
 }
@@ -29,6 +29,7 @@ Character &Character::operator=(const Character &rhs) {
 		else
 			_inventory[i] = NULL;
 	}
+	_unequiped = rhs._unequiped;
 	_name = rhs._name;
 	return (*this);
 }

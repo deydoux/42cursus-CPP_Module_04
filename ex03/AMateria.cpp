@@ -13,7 +13,7 @@ AMateria::AMateria(const AMateria &other): _type(other._type) {
 }
 
 AMateria::~AMateria() {
-	std::cerr << "AMateria destructor called" << std::endl;
+	std::cerr << _type << " AMateria destructor called" << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &rhs) {

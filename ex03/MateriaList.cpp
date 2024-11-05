@@ -8,8 +8,9 @@ MateriaList::MateriaList(AMateria *element): _element(element), _next() {
 	std::cerr << "Parametric MateriaList constructor called" << std::endl;
 }
 
-MateriaList::MateriaList(const MateriaList &other): _element(other._element), _next(other._next) {
+MateriaList::MateriaList(const MateriaList &other) {
 	std::cerr << "MateriaList copy constructor called" << std::endl;
+	*this = other;
 }
 
 MateriaList::~MateriaList() {
@@ -20,8 +21,15 @@ MateriaList::~MateriaList() {
 
 MateriaList &MateriaList::operator=(const MateriaList &rhs) {
 	std::cerr << "MateriaList copy assignement operator called" << std::endl;
-	_element = rhs._element;
-	_next = rhs._next;
+	if (rhs._element)
+		_element = rhs._element->clone();
+	else
+		_element = NULL;
+	delete _next;
+	if (rhs._next)
+		*_next = *rhs._next;
+	else
+		_next = NULL;
 	return (*this);
 }
 

@@ -18,7 +18,8 @@ int main(void) {
 	src->learnMateria(tmp);
 	delete tmp;
 
-	ICharacter *me = new Character("me");
+	ICharacter *me = new Character;
+	ICharacter *tmpMe = new Character("me");
 	ICharacter *bob = new Character("bob");
 
 	for (int i = -1; i <= 4; i++) {
@@ -26,22 +27,25 @@ int main(void) {
 		me->unequip(i);
 	}
 
-	me->equip(src->createMateria("ice"));
-	me->equip(src->createMateria("cure"));
-	me->equip(src->createMateria("something"));
-	me->equip(src->createMateria("ice"));
-	me->equip(src->createMateria("cure"));
-	me->equip(src->createMateria("something"));
+	tmpMe->equip(src->createMateria("ice"));
+	tmpMe->equip(src->createMateria("cure"));
+	tmpMe->equip(src->createMateria("something"));
+	tmpMe->equip(src->createMateria("ice"));
+	tmpMe->equip(src->createMateria("cure"));
+	tmpMe->equip(src->createMateria("something"));
 
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	tmpMe->equip(tmp);
 	delete tmp;
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	tmpMe->equip(tmp);
 	delete tmp;
 	tmp = src->createMateria("something");
 	me->equip(tmp);
 	delete tmp;
+
+	*me = *tmpMe;
+	delete tmpMe;
 
 	for (int i = -1; i <= 4; i++) {
 		me->use(i, *bob);
