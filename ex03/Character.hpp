@@ -3,10 +3,12 @@
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "MateriaList.hpp"
 
 class Character: public ICharacter {
 private:
 	AMateria *_inventory[4];
+	MateriaList unequiped;
 	std::string _name;
 public:
 	Character();
