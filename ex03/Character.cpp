@@ -66,6 +66,10 @@ void Character::unequip(int index) {
 }
 
 void Character::use(int index, ICharacter &target) {
-	if (_inventory[index])
+	if (0 > index || index > 4)
+		std::cout << "Invalid Character inventory slot" << std::endl;
+	else if (!_inventory[index])
+		std::cout << _name << " Character " << index << " inventory slot is empty" << std::endl;
+	else
 		_inventory[index]->use(target);
 }
